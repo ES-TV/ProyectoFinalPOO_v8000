@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Amerike\\POO\\SistemaDeAtaque\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{77DBDE12-5A4D-48E8-903F-E632203DE6B3}|SistemaDeAtaque\\SistemaDeAtaque.vcxproj|D:\\Amerike\\POO\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{77DBDE12-5A4D-48E8-903F-E632203DE6B3}|SistemaDeAtaque\\SistemaDeAtaque.vcxproj|solutionrelative:SistemaDeAtaque\\SistemaDeAtaque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SistemaDeAtaque.cpp",
+              "DocumentMoniker": "D:\\Amerike\\POO\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "RelativeDocumentMoniker": "SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "ToolTip": "D:\\Amerike\\POO\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "RelativeToolTip": "SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-06T04:09:03.486Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
