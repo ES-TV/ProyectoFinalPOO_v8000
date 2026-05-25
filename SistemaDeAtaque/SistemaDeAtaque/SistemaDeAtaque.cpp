@@ -7,38 +7,50 @@
 
 class Item
 {
-private:
+protected:
 	std::string nombreItem;
 	std::string categoriaItem;
-	int cantidadItem, danio, precioItem;
 	std::string descripcionItem;
 
 public:
-	Item(std::string p_nombreItem, std::string p_categoriaItem, int p_cantidadItem, int p_danio, int p_precioItem, std::string p_descripcionItem)
+	Item(std::string p_nombreItem, std::string p_categoriaItem, std::string p_descripcionItem)
 	{
 		nombreItem = p_nombreItem;
 		categoriaItem = p_categoriaItem;
-		cantidadItem = p_cantidadItem;
-		danio = p_danio;
-		precioItem = p_precioItem;
 		descripcionItem = p_descripcionItem;
 	}
+};
 
-	void fn_mostrarConsumibleInventario()
+class ItemConsumible : public Item
+{
+public:
+	// El precio es solo de este tipo de items
+	int precioItem, cantidadItem;
+
+	ItemConsumible(std::string p_nombreItemConsumible, std::string p_categoriaItemConsumible, int p_precioItem, int p_cantidadItem, std::string p_descripcionItemConsumible) :
+		Item(p_nombreItemConsumible, p_categoriaItemConsumible, p_descripcionItemConsumible) 
 	{
-		std::cout << "Nombre: " << nombreItem << std::endl;
-		std::cout << "Categoria: " << categoriaItem << std::endl;
-		std::cout << "Cantidad: " << cantidadItem << std::endl;
+		// Espacio de codigos de linea del constructor
+		precioItem = p_precioItem;
+		cantidadItem = p_cantidadItem;
 	}
 
-	void fn_mostrarArmaInventario()
+
+
+};
+
+class ItemArma : public Item
+{
+public:
+	// El daño es solo de este tipo de items
+	int danio;
+
+	ItemArma(std::string p_nombreItemArma, int p_danio, std::string p_categoriaItemArma, std::string p_descripcionItemArma) :
+		Item(p_nombreItemArma, p_categoriaItemArma, p_descripcionItemArma)
 	{
-		std::cout << "Nombre: " << nombreItem << std::endl;
-		std::cout << "Categoria: " << categoriaItem << std::endl;
-		std::cout << "Danio: " << danio << std::endl; // En este caso el precio del arma se usara como su danio
+		// Espacio de codigos de linea del constructor
+		danio = p_danio;
 	}
-
-
 
 
 };
@@ -124,33 +136,6 @@ public:
 		std::cout << "------------------" << std::endl;
 
 	}
-
-	void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
-	{
-		std::cout << "------------------" << std::endl;
-		std::cout << "   Consumibles  " << nombre << ":" << std::endl;
-		std::cout << "------------------" << std::endl;
-		for (int i = 0; i < inventario.size(); i++)
-		{
-			std::cout << i + 1 << ".-";
-			inventario[i].fn_mostrarConsumibleInventario();
-		}
-		std::system("pause");
-	}
-
-	void fn_showInventarioArmas() // Funcion para mostrar el inventario del jugador, se usara mas adelante
-	{
-		std::cout << "------------------" << std::endl;
-		std::cout << "     Armas      " << nombre << ":" << std::endl;
-		std::cout << "------------------" << std::endl;
-		for (int i = 0; i < inventario.size(); i++)
-		{
-			std::cout << i + 1 << ".-";
-			inventario[i].fn_mostrarArmaInventario();
-		}
-		std::system("pause");
-	}
-
 };
 
 class Enemigo : public Personaje
@@ -169,10 +154,10 @@ public:
 class Tienda
 {
 private:
-	std::vector<Item> inventario;
+	std::vector<ItemConsumible> inventarioTienda;
 
 public:
-	Tienda()
+	Tienda(ItemConsumible )
 	{
 
 	}
@@ -182,14 +167,30 @@ public:
 };
 
 // Aqui se crean los objetos como variables globales para poder usarlas en cualquier parte del codigo
+/*---------------------------------------------------------------Constructor-Jugador---------------------------------------------------------------------*/
 Jugador objJugador("Zawardo", 40, 10); // Nombre, vida, danio
+/*---------------------------------------------------------------Constructor-Enemigos-Especiales---------------------------------------------------------------------*/
 Enemigo objEnemy1("Chaneque", 20, 3);
 Enemigo objEnemy2("Bruja", 30, 5);
 Enemigo objEnemy3("Nahual", 40, 7);
+/*---------------------------------------------------------------Constructor-Enemigos---------------------------------------------------------------------*/
 Enemigo enemigos[] = { objEnemy1, objEnemy2, objEnemy3 }; // Se genero un vector con los obejots de enemigos
 Enemigo objEnemy = enemigos[std::rand() % 3]; // Ya se hace el random para pelear
-Item itemConsumibleA("Gansito", "(Consumible)", 10, 0, 10, "Delicioso aperitivo para curar puntos de Salud"); // Nombre, categoria, cantidad, daño, precio, descripcion
-Item itemConsumibleA("Monster", "(Consumible)", 10, 0, 5, "Bebida brutalmente energetica para recuperar puntos de Energia");
+/*---------------------------------------------------------------Constructor-items-Consumibles---------------------------------------------------------------------*/
+ItemConsumible itemConsumibleVida1("Gansito", "(Vida)", 10, 15, "'Delicioso aperitivo para curar puntos de Salud'"); // Nombre, categoria, precio, cantidad, descripcion
+ItemConsumible itemConsumibleVida2("Monster Magoloko", "(Stamina)", 30, 10, "Bebida brutalmente energetica para recuperar puntos de Energia");
+ItemConsumible itemConsumibleStamina1("Monster Magoloko", "(Stamina)", 30, 10, "Bebida brutalmente energetica para recuperar puntos de Energia");
+ItemConsumible itemConsumibleStamina2("Monster Magoloko", "(Stamina)", 30, 10, "Bebida brutalmente energetica para recuperar puntos de Energia");
+/*---------------------------------------------------------------Constructor-Armas---------------------------------------------------------------------*/
+ItemArma ArmaNormal1("Cuchillo", 10, "(Arma Comun)", "'Un tipico cuchillo de cocina que le robaste a tu madre'"); // nombre, daño, categoria, descripsion
+ItemArma ArmaNormal2("Machete", 20, "(Arma Comun)", "'El arma favorita de todo abuelo lulu para pelear con el diablo'");
+ItemArma ArmaEspecial1("Machete", 20, "(Arma Especial)\n'efecto'", "'El arma favorita de todo abuelo lulu para pelear con el diablo'");
+ItemArma ArmaEspecial2("Machete", 20, "(Arma Especial)\n'efecto", "'(Descripcion)'");
+ItemArma ArmaEspecial3("Machete", 20, "(Arma Especial)\n'efecto", "'(Descripcion)'");
+
+/*--------------------------------------------------------------------------------------------------------
+			Funciones del cmd 
+--------------------------------------------------------------------------------------------------------*/
 
 void fn_EfectoTexto(std::string texto) // Esta funcion es para imprimir el texto con un efecto de juego  que se imprime letra por letra (Se usara en ve del std::cout)
 {
@@ -225,6 +226,37 @@ void fn_ImprimirTextoPelea()
 	} while (objJugador.fn_estavivo() && objEnemy.fn_estavivo());
 	fn_EfectoTexto("El enemigo ha sido derrotado");
 }
+
+/*--------------------------------------------------------------------------------------------------------
+			Funciones del Jugador
+--------------------------------------------------------------------------------------------------------*/
+
+void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
+{
+	std::cout << "------------------" << std::endl;
+	std::cout << "   Consumibles  " << nombre << ":" << std::endl;
+	std::cout << "------------------" << std::endl;
+	for (int i = 0; i < inventario.size(); i++)
+	{
+		std::cout << i + 1 << ".-";
+		inventario[i].fn_mostrarConsumibleInventario();
+	}
+	std::system("pause");
+}
+
+void fn_showInventarioArmas() // Funcion para mostrar el inventario del jugador, se usara mas adelante
+{
+	std::cout << "------------------" << std::endl;
+	std::cout << "     Armas      " << nombre << ":" << std::endl;
+	std::cout << "------------------" << std::endl;
+	for (int i = 0; i < inventario.size(); i++)
+	{
+		std::cout << i + 1 << ".-";
+		inventario[i].fn_mostrarArmaInventario();
+	}
+	std::system("pause");
+}
+
 
 int main()
 {
