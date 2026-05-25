@@ -130,6 +130,17 @@ void fn_ImprimirTextoPelea()
 	fn_EfectoTexto("El enemigo ha sido derrotado");
 }
 
+class Tienda 
+{
+private:
+
+
+public:
+	Tienda()
+	{
+
+	}
+};
 
 int main()
 {

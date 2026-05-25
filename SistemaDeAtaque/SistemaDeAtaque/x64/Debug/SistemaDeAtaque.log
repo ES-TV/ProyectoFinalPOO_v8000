@@ -1,3 +1,3 @@
 ﻿  SistemaDeAtaque.cpp
-D:\Amerike\POO\SistemaDeAtaque\SistemaDeAtaque\SistemaDeAtaque.cpp(92,17): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  SistemaDeAtaque.vcxproj -> D:\Amerike\POO\SistemaDeAtaque\x64\Debug\SistemaDeAtaque.exe
+D:\Amerike\POO\ProyectoFinalPOO_v8000\SistemaDeAtaque\SistemaDeAtaque\SistemaDeAtaque.cpp(136,17): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  SistemaDeAtaque.vcxproj -> D:\Amerike\POO\ProyectoFinalPOO_v8000\SistemaDeAtaque\x64\Debug\SistemaDeAtaque.exe
