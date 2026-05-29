@@ -110,8 +110,8 @@ public:
 class Jugador : public Personaje // Clase Jugador que heredara cosas de la principal ya le decimos que va a ser Heredera de la clase Padre/Base
 {
 protected:
-	std::vector<Item> inventario; // Aqui se declara el inventario del jugador como un vector de objetos de la clase Item
-
+	std::vector<ItemConsumible> inventarioConsumibles; // Aqui se declara el inventario del jugador como un vector de objetos de la clase ItemConsumible
+	std::vector<ItemArma> inventarioArmas; // Aqui se declara el inventario del jugador como un vector de objetos de la clase ItemArma
 
 public:
 	Jugador(std::string p_nombreJugador, int p_vidaJugador, int p_danioJugador) : // Constructor para esta clase usando la herencia de la clase Padre/Base
@@ -121,20 +121,34 @@ public:
 
 	}
 
-	void fn_agregarItem(Item item) // Funcion para agregar items al inventario del jugador, se usara mas adelante
+	void fn_agregarItemConsumible(ItemConsumible item) // Funcion para agregar items al inventario del jugador, se usara mas adelante
 	{
-		inventario.push_back(item);
+		inventarioConsumibles.push_back(item);
 	}
 
-	void fn_menuInventario() // Funcion para mostrar el menu del inventario del jugador, se usara mas adelante
+	void fn_agregarItemArma(ItemArma item) // Funcion para agregar armas al inventario del jugador, se usara mas adelante
 	{
-		std::cout << "Menu de Inventario\Selecciona una opcion:" << std::endl;
-		std::cout << "------------------" << std::endl;
-		std::cout << "1. Consumibles" << std::endl;
-		std::cout << "2. Armas" << std::endl;
-		std::cout << "3. Salir" << std::endl;
-		std::cout << "------------------" << std::endl;
+		inventarioArmas.push_back(item);
+	}
 
+	void fn_getInventarioConsumibles() // Funcion para obtener el inventario de consumibles del jugador, se usara mas adelante
+	{
+		for (int i = 0; i < inventarioConsumibles.size(); i++)
+		{
+			std::cout << i + 1 << ".-";
+			inventarioConsumibles[i];
+			std::cout << std::endl;
+		}
+	}
+
+	void fn_getInventarioArmas() // Funcion para obtener el inventario de armas del jugador, se usara mas adelante
+	{
+		for (int i = 0; i < inventarioArmas.size(); i++)
+		{
+			std::cout << i + 1 << ".-";
+			inventarioArmas[i];
+			std::cout << std::endl;
+		}
 	}
 };
 
@@ -234,28 +248,51 @@ void fn_ImprimirTextoPelea()
 void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
 {
 	std::cout << "------------------" << std::endl;
-	std::cout << "   Consumibles  " << nombre << ":" << std::endl;
+	std::cout << "   Consumibles  " << objJugador.fn_getNombre() << ":" << std::endl;
 	std::cout << "------------------" << std::endl;
-	for (int i = 0; i < inventario.size(); i++)
-	{
-		std::cout << i + 1 << ".-";
-		inventario[i].fn_mostrarConsumibleInventario();
-	}
+	objJugador.fn_getInventarioConsumibles(); // Aqui se llama a la funcion para obtener el inventario de consumibles del jugador
 	std::system("pause");
 }
 
 void fn_showInventarioArmas() // Funcion para mostrar el inventario del jugador, se usara mas adelante
 {
 	std::cout << "------------------" << std::endl;
-	std::cout << "     Armas      " << nombre << ":" << std::endl;
+	std::cout << "     Armas" << objJugador.fn_getNombre() << ":" << std::endl;
 	std::cout << "------------------" << std::endl;
-	for (int i = 0; i < inventario.size(); i++)
-	{
-		std::cout << i + 1 << ".-";
-		inventario[i].fn_mostrarArmaInventario();
-	}
+	objJugador.fn_getInventarioArmas(); // Aqui se llama a la funcion para obtener el inventario de armas del jugador
 	std::system("pause");
 }
+
+void fn_menuInventario() // Funcion para mostrar el menu del inventario del jugador, se usara mas adelante
+{
+	int opcionMenuInventario = 0;
+	std::cout << "Menu de Inventario\Selecciona una opcion:" << std::endl;
+	std::cout << "------------------" << std::endl;
+	std::cout << "1. Consumibles" << std::endl;
+	std::cout << "2. Armas" << std::endl;
+	std::cout << "3. Salir" << std::endl;
+	std::cout << "------------------" << std::endl;
+	std::cin >> opcionMenuInventario;
+
+	if (opcionMenuInventario == 1)
+	{
+		fn_showInventarioConsumibles(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
+	}
+	else if (opcionMenuInventario == 2)
+	{
+		fn_showInventarioArmas(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
+	}
+	else if (opcionMenuInventario == 3)
+	{
+		fn_EfectoTexto("Saliendo del inventario...");
+	}
+	else
+	{
+		fn_EfectoTexto("Opcion invalida, intenta de nuevo.");
+	}
+}
+
+
 
 
 int main()

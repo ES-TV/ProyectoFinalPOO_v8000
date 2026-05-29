@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\",
+  "WorkspaceRootPath": "D:\\Amerike\\POO\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77DBDE12-5A4D-48E8-903F-E632203DE6B3}|SistemaDeAtaque\\SistemaDeAtaque.vcxproj|C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{77DBDE12-5A4D-48E8-903F-E632203DE6B3}|SistemaDeAtaque\\SistemaDeAtaque.vcxproj|D:\\Amerike\\POO\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{77DBDE12-5A4D-48E8-903F-E632203DE6B3}|SistemaDeAtaque\\SistemaDeAtaque.vcxproj|solutionrelative:SistemaDeAtaque\\SistemaDeAtaque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -24,23 +24,20 @@
               "DocumentIndex": 1,
               "Title": "TienditaDoniaMari.cpp",
               "DocumentMoniker": "C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\TienditaDoniaMari.cpp",
-              "RelativeDocumentMoniker": "..\\..\\TienditaDoniaMari.cpp",
               "ToolTip": "C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\TienditaDoniaMari.cpp",
-              "RelativeToolTip": "..\\..\\TienditaDoniaMari.cpp",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-25T13:36:21.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-25T13:36:21.22Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "SistemaDeAtaque.cpp",
-              "DocumentMoniker": "C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "DocumentMoniker": "D:\\Amerike\\POO\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
               "RelativeDocumentMoniker": "SistemaDeAtaque\\SistemaDeAtaque.cpp",
-              "ToolTip": "C:\\Users\\ALUMNO\\Desktop\\BananoXfiles\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
+              "ToolTip": "D:\\Amerike\\POO\\ProyectoFinalPOO_v8000\\SistemaDeAtaque\\SistemaDeAtaque\\SistemaDeAtaque.cpp",
               "RelativeToolTip": "SistemaDeAtaque\\SistemaDeAtaque.cpp",
-              "ViewState": "AgIAANMAAAAAAAAAAADwv+wAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAABAAAAAAAAAAAhwAoBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-06T04:09:03.486Z",
               "EditorCaption": ""
