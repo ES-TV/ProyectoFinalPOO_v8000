@@ -206,7 +206,7 @@ ItemArma ArmaEspecial3("Machete", 20, "(Arma Especial)\n'efecto", "'(Descripcion
 			Funciones del cmd 
 --------------------------------------------------------------------------------------------------------*/
 
-void fn_EfectoTexto(std::string texto) // Esta funcion es para imprimir el texto con un efecto de juego  que se imprime letra por letra (Se usara en ve del std::cout)
+void fn_efectoTexto(std::string texto) // Esta funcion es para imprimir el texto con un efecto de juego  que se imprime letra por letra (Se usara en ve del std::cout)
 {
 	for (char c : texto)
 	{
@@ -216,11 +216,11 @@ void fn_EfectoTexto(std::string texto) // Esta funcion es para imprimir el texto
 	std::cout << std::endl; // Salto de linea al final del texto
 }
 
-void fn_ImprimirTextoPelea()
+void fn_imprimirTextoPelea()
 {
 
-	fn_EfectoTexto("Te has encontrado con un " + objEnemy.fn_getNombre());
-	fn_EfectoTexto("Sus stats son:\n Vida: " + std::to_string(objEnemy.fn_getVida()) + " Danio = " + std::to_string(objEnemy.fn_getDanio()));
+	fn_efectoTexto("Te has encontrado con un " + objEnemy.fn_getNombre());
+	fn_efectoTexto("Sus stats son:\n Vida: " + std::to_string(objEnemy.fn_getVida()) + " Danio = " + std::to_string(objEnemy.fn_getDanio()));
 	// Se usa el std::to_string() para convertir los numeros a string para imprimirlos igual evitando errores matematicos
 	std::system("pause");
 	// Atacar
@@ -228,17 +228,17 @@ void fn_ImprimirTextoPelea()
 	{
 		int danioJugador = objJugador.fn_getDanio();
 		objEnemy.fn_attack(danioJugador);
-		fn_EfectoTexto("Zawardo pega un machetazo haciendole " + std::to_string(danioJugador) + " de danio al enemigo");
-		fn_EfectoTexto("Vida del enemigo: " + std::to_string(objEnemy.fn_getVida())); // Aqui checamos la vida del enemigo
+		fn_efectoTexto("Zawardo pega un machetazo haciendole " + std::to_string(danioJugador) + " de danio al enemigo");
+		fn_efectoTexto("Vida del enemigo: " + std::to_string(objEnemy.fn_getVida())); // Aqui checamos la vida del enemigo
 		std::system("pause");
 		int danioEnemy = objEnemy.fn_getDanio();
 		objJugador.fn_attack(danioEnemy);
-		fn_EfectoTexto("El enemigo te ataca dandote " + std::to_string(danioEnemy) + " de danio");
-		fn_EfectoTexto("Vida: " + std::to_string(objJugador.fn_getVida())); // Aqui checamos la vida del jugador
+		fn_efectoTexto("El enemigo te ataca dandote " + std::to_string(danioEnemy) + " de danio");
+		fn_efectoTexto("Vida: " + std::to_string(objJugador.fn_getVida())); // Aqui checamos la vida del jugador
 		std::system("pause");
 		std::system("cls");
 	} while (objJugador.fn_estavivo() && objEnemy.fn_estavivo());
-	fn_EfectoTexto("El enemigo ha sido derrotado");
+	fn_efectoTexto("El enemigo ha sido derrotado");
 }
 
 /*--------------------------------------------------------------------------------------------------------
@@ -248,7 +248,7 @@ void fn_ImprimirTextoPelea()
 
 /*----------------------------------Funciones-Inventario-----------------------------------------------*/
 
-void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
+void fn_mostrarInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
 {
 	std::cout << "------------------" << std::endl;
 	std::cout << "   Consumibles  " << objJugador.fn_getNombre() << ":" << std::endl;
@@ -257,7 +257,7 @@ void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del ju
 	std::system("pause");
 }
 
-void fn_showInventarioArmas() // Funcion para mostrar el inventario del jugador, se usara mas adelante
+void fn_mostrarInventarioArmas() // Funcion para mostrar el inventario del jugador, se usara mas adelante
 {
 	std::cout << "------------------" << std::endl;
 	std::cout << "     Armas" << objJugador.fn_getNombre() << ":" << std::endl;
@@ -279,30 +279,28 @@ void fn_menuInventario() // Funcion para mostrar el menu del inventario del juga
 
 	if (opcionMenuInventario == 1)
 	{
-		fn_showInventarioConsumibles(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
+		fn_mostrarInventarioConsumibles(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
 	}
 	else if (opcionMenuInventario == 2)
 	{
-		fn_showInventarioArmas(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
+		fn_mostrarInventarioArmas(); // Funcion para mostrar el inventario del jugador, se usara mas adelante
 	}
 	else if (opcionMenuInventario == 3)
 	{
-		fn_EfectoTexto("Saliendo del inventario...");
+		fn_efectoTexto("Saliendo del inventario...");
 	}
 	else
 	{
-		fn_EfectoTexto("Opcion invalida, intenta de nuevo.");
+		fn_efectoTexto("Opcion invalida, intenta de nuevo.");
 	}
 }
-
-
 
 
 int main()
 {
 	std::srand(time(NULL));
 
-	fn_ImprimirTextoPelea();
+	fn_imprimirTextoPelea();
 	
 	return 0;
 }
