@@ -242,8 +242,11 @@ void fn_ImprimirTextoPelea()
 }
 
 /*--------------------------------------------------------------------------------------------------------
-			Funciones del Jugador
+			                     Funciones del Jugador
 --------------------------------------------------------------------------------------------------------*/
+
+
+/*----------------------------------Funciones-Inventario-----------------------------------------------*/
 
 void fn_showInventarioConsumibles() // Funcion para mostrar el inventario del jugador, se usara mas adelante
 {
