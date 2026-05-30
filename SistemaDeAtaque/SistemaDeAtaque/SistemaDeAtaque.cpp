@@ -35,8 +35,10 @@ public:
 		cantidadItem = p_cantidadItem;
 	}
 
-
-
+	void fn_imprimirInfoItem()
+	{
+		std::cout << nombreItem << "\nCategoria: " << categoriaItem << "\nDescripcion: " << descripcionItem << std::endl;
+	}
 };
 
 class ItemArma : public Item
@@ -112,13 +114,14 @@ class Jugador : public Personaje // Clase Jugador que heredara cosas de la princ
 protected:
 	std::vector<ItemConsumible> inventarioConsumibles; // Aqui se declara el inventario del jugador como un vector de objetos de la clase ItemConsumible
 	std::vector<ItemArma> inventarioArmas; // Aqui se declara el inventario del jugador como un vector de objetos de la clase ItemArma
+	int dineros;
 
 public:
-	Jugador(std::string p_nombreJugador, int p_vidaJugador, int p_danioJugador) : // Constructor para esta clase usando la herencia de la clase Padre/Base
+	Jugador(std::string p_nombreJugador, int p_vidaJugador, int p_danioJugador, int _dineros) : // Constructor para esta clase usando la herencia de la clase Padre/Base
 		Personaje(p_nombreJugador, p_vidaJugador, p_danioJugador) // Asi es como se declara el constructor, solo que con los mismos parametros de de esta clase
 		// (Se pudieron poner los constructores en la misma fila pero para los comentarios os separe)
 	{
-
+		dineros = _dineros;
 	}
 
 	void fn_agregarItemConsumible(ItemConsumible item) // Funcion para agregar items al inventario del jugador, se usara mas adelante
@@ -171,13 +174,22 @@ private:
 	std::vector<ItemConsumible> inventarioTienda;
 
 public:
-	Tienda(ItemConsumible )
+	Tienda(ItemConsumible _itemConsumibleVida1, ItemConsumible _itemConsumibleVida2, ItemConsumible _itemConsumibleStamina1, ItemConsumible _itemConsumibleStamina2)
 	{
-
+		inventarioTienda.push_back(_itemConsumibleVida1);
+		inventarioTienda.push_back(_itemConsumibleVida2);
+		inventarioTienda.push_back(_itemConsumibleStamina1);
+		inventarioTienda.push_back(_itemConsumibleStamina2);
 	}
 
-
-
+	void fn_mostrarInventarioTienda()
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			std::cout << i + 1 << ".- ";
+			inventarioTienda[i].fn_imprimirInfoItem();
+		}
+	}
 };
 
 // Aqui se crean los objetos como variables globales para poder usarlas en cualquier parte del codigo
@@ -201,6 +213,9 @@ ItemArma ArmaNormal2("Machete", 20, "(Arma Comun)", "'El arma favorita de todo a
 ItemArma ArmaEspecial1("Machete", 20, "(Arma Especial)\n'efecto'", "'El arma favorita de todo abuelo lulu para pelear con el diablo'");
 ItemArma ArmaEspecial2("Machete", 20, "(Arma Especial)\n'efecto", "'(Descripcion)'");
 ItemArma ArmaEspecial3("Machete", 20, "(Arma Especial)\n'efecto", "'(Descripcion)'");
+/*---------------------------------------------------------------Constructor-de-la-Tienda---------------------------------------------------------------------*/
+Tienda Oxxo(itemConsumibleVida1, itemConsumibleVida2, itemConsumibleStamina1, itemConsumibleStamina2);
+
 
 /*--------------------------------------------------------------------------------------------------------
 			Funciones del cmd 
@@ -214,6 +229,24 @@ void fn_efectoTexto(std::string texto) // Esta funcion es para imprimir el texto
 		std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Pausa de 50 milisegundos entre cada caracter
 	}
 	std::cout << std::endl; // Salto de linea al final del texto
+}
+
+void fn_imprimirTextoMenu()
+{
+	int opcionMenu = 0;
+	fn_efectoTexto("Has abierto el mapa a donde quieres ir?\n1) Tienda\n2) Pelear");
+	std::cin >> opcionMenu;
+
+	switch (opcionMenu)
+	{
+	case 1:
+
+		break;
+	case 2:
+		fn_imprimirTextoPelea();
+		break;
+
+	}
 }
 
 void fn_imprimirTextoPelea()
@@ -295,6 +328,37 @@ void fn_menuInventario() // Funcion para mostrar el menu del inventario del juga
 	}
 }
 
+/*----------------------------------Funciones-De-Tienda-----------------------------------------------*/
+
+void fn_comprarItem()
+{
+	int opcionDeCompra = 0;
+	fn_efectoTexto("Te damos la bienvenida al Oxxo!\nTenemos lo sigiente en la tienda:");
+	Oxxo.fn_mostrarInventarioTienda();
+	fn_efectoTexto("Que desea comprar?");
+	std::cin >> opcionDeCompra;
+
+	switch (opcionDeCompra)
+	{
+	case 1:
+		
+		break;
+	case 2:
+
+		break;
+	case 3:
+
+		break;
+	case 4:
+
+		break;
+	default:
+		fn_efectoTexto("Opcion no valida");
+		break;
+	}
+}
+
+/*----------------------------------MAIN-----------------------------------------------*/
 
 int main()
 {
