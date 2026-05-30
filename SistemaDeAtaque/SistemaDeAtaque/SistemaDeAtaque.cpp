@@ -194,7 +194,7 @@ public:
 
 // Aqui se crean los objetos como variables globales para poder usarlas en cualquier parte del codigo
 /*---------------------------------------------------------------Constructor-Jugador---------------------------------------------------------------------*/
-Jugador objJugador("Zawardo", 40, 10); // Nombre, vida, danio
+Jugador objJugador("Zawardo", 40, 10, 500); // Nombre, vida, danio
 /*---------------------------------------------------------------Constructor-Enemigos-Especiales---------------------------------------------------------------------*/
 Enemigo objEnemy1("Chaneque", 20, 3);
 Enemigo objEnemy2("Bruja", 30, 5);
